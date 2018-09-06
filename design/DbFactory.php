@@ -1,9 +1,9 @@
 <?php
 include("Simple1.php");
+include("RegisterTree.php");
 class DbFactory{
     static public function DB(){
         $sim = Simple1::getDb();
-        $sim->simple();
+        RegisterTree::set('db',$sim);
     }
 }
-DbFactory::DB();
