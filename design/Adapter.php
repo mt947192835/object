@@ -1,4 +1,5 @@
 <?php
+//适配器
 interface database{
     function connect();
     function select();

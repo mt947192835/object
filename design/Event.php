@@ -30,6 +30,8 @@ class Event{
            foreach (self::$object as $object){
                $object->update();
            }
+        }else{
+            echo "没有要通知的对象";
         }
     }
 }
