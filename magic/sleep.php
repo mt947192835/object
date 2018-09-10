@@ -14,5 +14,5 @@ class Person{
 }
 $person = new Person();
 $person1 =  serialize($person);
-
+print_r($person1);exit;
 unserialize($person1);
