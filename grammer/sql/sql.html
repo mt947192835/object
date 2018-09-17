@@ -1,0 +1,10 @@
+网址：http://www.cnblogs.com/luo813/p/8993727.html
+1、查询"01"课程比"02"课程成绩高的学生的信息及课程分数
+1.1、查询同时存在"01"课程和"02"课程的情况
+create view score01 as select * from score where cid = 01;
+create view score02 as select * from score where cid = 02;
+select st.*,c.name as cname,sc.score from student as st
+inner join score as sc on sc.sid = st.sid
+inner join course as c on c.cid = sc.cid
+where st.sid in (select score01.sid from score01 inner join score02 on score01.sid = score02.sid where score01.score > score02.score);
+1.2、查询同时存在"01"课程和"02"课程的情况和存在"01"课程但可能不存在"02"课程的情况(不存在时显示为null)(以下存在相同内容时不再解释)
